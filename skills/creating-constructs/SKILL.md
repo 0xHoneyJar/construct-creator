@@ -37,7 +37,7 @@ The creating-constructs workflow is a **navigable state machine** (per cycle-006
 | 7. **Persona** | "If it has a persona, write `identity/<HANDLE>.md`. Voice must be distinct." | Persona narrative with voice calibration | Generic persona (reads like a wiki article, not a voice) |
 | 8. **Validate** | Runs `construct-validate.sh` | All-green validator report | Any MEDIUM or higher finding |
 | 9. **Butterfreezone** | Runs `butterfreezone-construct-gen.sh` | `CONSTRUCT-README.md` committed | Generator errors OR wrong content surfaces |
-| 10. **Reference composition** | "Author one composition YAML that uses your construct." | `compositions/<demo>.yaml` | No concrete use demonstrated |
+| 10. **Reference composition** | "Pick a shape from `compositions/SHAPES.md` (wayfinding-pair / audit-pair / eye-hand / full-stack), study the exemplar, then author one composition YAML that uses your construct." | `compositions/<demo>.yaml` | No concrete use demonstrated OR shape mismatch (claimed shape doesn't match the chain structure) |
 | 11. **Publish** | "`gh repo create 0xHoneyJar/<slug> --public --source . --push`" | Upstream repo + registry entry | Previous stages incomplete |
 
 ## Per-stage behavior
