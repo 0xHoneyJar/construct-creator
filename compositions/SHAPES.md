@@ -1,93 +1,86 @@
-# Composition Shapes
+# Composing Constructs
 
-Stage 10 of the apprenticeship asks for one composition that uses your new construct. Most compositions land in one of four canonical shapes. Pick the one closest to what your construct does, study the exemplar, then author your variant.
+Compositions are not prescribed shapes. They emerge when you name what the workflow should *provide* — for the operator running it, and for the end user consuming its output — then chain the right experts to deliver.
 
-These are not templates with placeholders — they are real compositions that survived review. Read them as patterns, not as fill-in-the-blanks.
+This doc is not a menu of templates. It surfaces patterns observed in shipped compositions because naming them helps new authors orient. Read each entry as "this is what happened when X needed to be delivered" — not "this is how X must look."
 
-## The four shapes
+The philosophy is the constant. The shape is what's left over once the philosophy is named.
 
-| Shape | One-line | Exemplar | Reach for it when… |
-|---|---|---|---|
-| **wayfinding-pair** | recommend → craft-gate | [`explore-ecosystem.yaml`](./explore-ecosystem.yaml) | your construct surfaces choices and a craft lens validates |
-| **audit-pair** | primary → cross-reference | [`feel-audit.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/feel-audit.yaml) | your construct emits a Verdict that benefits from a second-construct reality check |
-| **eye-hand** | direction → execution (with iterate loop) | [`feel-image.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/feel-image.yaml) | one construct distills *what* and another executes *how* |
-| **full-stack** | multi-construct sequential pipeline | [`website-scaffold.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/website-scaffold.yaml) | the operator's job spans 5+ stages with multiple iteration loops |
+## What composing provides
 
-## Shape · wayfinding-pair
+- **A way to name expertise as orchestration.** A construct is a named expert. A composition is what those experts collaborate on, with declared streams and iteration boundaries.
+- **Inheritance of feedback mechanisms.** When you compose with `artisan`, you inherit the single-stamp discipline, the shelf test, the craft-gate. You don't re-author the rails — they come with the pack.
+- **An invocation contract.** A composition's `inputs` + `outputs` + `chain` is the public surface. Operators don't need to know which skills run; they hand inputs and receive declared streams.
+- **A philosophical rail in non-deterministic territory.** Skills give structure to "how and why" you approach problems; scripts give deterministic outputs. Compositions are where that structure compounds across multiple experts.
 
-```
-[primary: surfaces options + reasoning] → [craft-gate: validates against standard]
-```
+## Patterns observed in the wild
 
-Two stages, both fresh-mode. Primary writes `Verdict` + `Signal`. Craft-gate refines the Verdict with severity tagging and caveats. Best for *recommendation* compositions — "what should I use to X?" with a built-in taste check before emission.
+For each pattern below: lead with what the workflow *provides*, then point at an exemplar.
 
-The pattern: synthesis register tolerates context dilution (CURATOR's lens is breadth-first); the craft-gate's narrow taste lens catches drift before the recommendation ships.
+### wayfinding-pair
 
-Exemplar: `explore-ecosystem.yaml` — `construct-network-tools/exploring-network` → `artisan/scoring-experience`.
+**Provides**: a recommendation that's been craft-gated. Operator gets a defensible answer to "what should I use to X"; downstream consumers get reasoning chains they can audit.
 
-## Shape · audit-pair
+**In the wild**: [`explore-ecosystem.yaml`](./explore-ecosystem.yaml) — `construct-network-tools/exploring-network` → `artisan/scoring-experience`.
 
-```
-[primary: produces Verdict] → [cross-reference: enriches Verdict with second-construct context]
-```
+**Reach for it when**: your construct surfaces choices and you want a built-in taste check before emission.
 
-Two-or-three stages, primary-then-cross-reference. The primary owns the substantive analysis; the cross-reference construct lifts it from a single-surface Verdict into a multi-surface or longitudinal one. Pattern is symmetric: either side can lead, depending on which lens grounds the analysis.
+### audit-pair
 
-The pattern: a single construct's Verdict is honest but parochial. Cross-referencing against a paired construct's context (friction map, behavior log, prior decisions) catches what one lens cannot see.
+**Provides**: a Verdict raised from single-surface to multi-surface context. Operator gets cross-referenced findings; downstream consumers (PR reviewers, team members) get evidence chains anchored in two constructs' lenses, not one.
 
-Exemplar: `feel-audit.yaml` — `artisan/decomposing-feel` + `artisan/scoring-experience` → `observer/analyzing-gaps`.
+**In the wild**: [`feel-audit.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/feel-audit.yaml) — `artisan/decomposing-feel` + `artisan/scoring-experience` → `observer/analyzing-gaps`.
 
-## Shape · eye-hand
+**Reach for it when**: your construct emits a Verdict that benefits from cross-reference (friction map, behavior log, prior decisions).
 
-```
-[direction: distills creative brief from context] ↕ [execution: produces artifact from brief]
-                                                    └─[craft-gate: selection test]
-```
+### eye-hand
 
-Three-or-four stages with an iterate loop between execution and selection. Direction is persistent (brief refines across iterations); execution is persistent (seed/ref history accumulates); selection is fresh (clean evaluation each pass). Output is artifact-shaped, not verdict-shaped.
+**Provides**: an artifact produced from a brief, with selection discipline built in. Operator gets output that landed inside the canon; the end user (whoever sees the asset) gets work that feels like it belongs.
 
-The pattern: prompt engineers without direction produce plausible-but-uncanny output; creative directors without prompting technique produce beautiful briefs that never land. Naming both stages explicitly forces neither to be skipped.
+**In the wild**: [`feel-image.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/feel-image.yaml) — `artisan/directing-generation` ↔ `the-mint/prompting-images` → `the-mint/curate` → `the-mint/materialize`.
 
-Exemplar: `feel-image.yaml` — `artisan/directing-generation` ↔ `the-mint/prompting-images` → `the-mint/curate` → `the-mint/materialize`.
+**Reach for it when**: one construct distills *what should exist* and another produces it.
 
-## Shape · full-stack
+### full-stack
 
-```
-[research] → [exploration ↕ refinement] → [generation] → [system ↕ component] → [structure]
-```
+**Provides**: an end-to-end deliverable across research → design → build → structure. Operator gets a compounded outcome no single expert could deliver alone; the end user (visitor, dashboard user) gets coherence across phases that usually drift.
 
-Five-to-seven stages, mix of fresh and persistent, multiple iterate loops. One construct per stage; persistent teammates accumulate register depth across their iteration partner.
+**In the wild**: [`website-scaffold.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/website-scaffold.yaml) — `k-hole` → `the-easel` ↔ `the-mint/mint` ↔ `the-easel` → `artisan/designing-systems` ↔ `artisan/distilling-components` → `the-arcade/mapping-topology`.
 
-The pattern: a single operator job (scaffolding a website, shipping a feature) spans research, design, build, and structure. Each phase wants a different expert. Compose them as one pipe with declared iteration boundaries; let the runner orchestrate.
+**Reach for it when**: the operator's job spans 5+ stages and benefits from a different expert per phase.
 
-Exemplar: `website-scaffold.yaml` — `k-hole` → `the-easel` ↔ `the-mint/mint` ↔ `the-easel` → `artisan/designing-systems` ↔ `artisan/distilling-components` → `the-arcade/mapping-topology`.
+### construct-emitter
 
-## When none of the shapes fit
+**Provides**: a publishable construct repo as the composition's terminal output. Operator gets a packaged result they can ship as a new pack; the end user (anyone who installs it) gets a queryable, composable expertise surface.
 
-Your construct may not chain at all. Two cases:
+**In the wild**: [`collection-with-codex.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/collection-with-codex.yaml) — `artisan/synthesizing-taste` → `artisan/distilling-components` ↔ `the-mint/mint` ↔ `the-mint/curate` → `artisan/recording-taste` → `the-mint/materialize`.
 
-- **Read-only data exposure** (codex shape): your construct exposes a structured knowledge base via read-only skills (browse, query, cross-reference). It is consumed *by* other compositions, not authored as one. Reference: [`construct-mibera-codex`](https://github.com/0xHoneyJar/construct-mibera-codex) — three skills over a knowledge graph, no chain.
-- **Single-skill construct**: one expert, one workflow, no orchestration needed. Authoring stage 10 in this case means writing a *minimal* composition that demonstrates the skill in context — one stage, one construct, full input/output declaration. Use it as the published invocation contract.
+**Reach for it when**: you're building tools that scaffold publishable constructs as users iterate (gen-art collection preview tools, lore authoring surfaces, character pipelines).
 
-If your construct genuinely needs a new shape, document the shape here when it appears. Patterns earn their place by recurring; do not invent a shape for one composition.
+## When your construct doesn't chain
+
+Compositions express orchestration. Some constructs don't orchestrate — they expose. If your construct is a codex (read-only data over a structured schema), other compositions consume it; it doesn't author one of its own. Reference: [`construct-mibera-codex`](https://github.com/0xHoneyJar/construct-mibera-codex) — three skills over a knowledge graph, no chain.
+
+If your construct has a single skill, your stage-10 composition is that skill in invocation form — one stage, full input/output declaration. The philosophy still lands; the orchestration is degenerate.
 
 ## What to author at stage 10
 
-1. Pick the shape closest to your construct's role in the chain
-2. Study the exemplar — read `chain:`, `iterate:`, `outputs:`, `composes_symmetrically_with:`
-3. Author `compositions/<your-demo>.yaml` declaring at minimum:
+1. Name what the workflow *provides* — for the operator running it, and for the end user consuming the output. Not "what stages does this run" but "what value does this deliver."
+2. Look at the patterns above. If one names something close to your value, study its exemplar.
+3. If none fit, your composition may be a new pattern. Author it — patterns earn their place by recurring, not by design.
+4. Author `compositions/<your-demo>.yaml` declaring at minimum:
    - `schema_version: "1.0"`, `kind: workflow`, `name`, `description`, `intent`
    - `backend: headless-tmux` (until cycle-007 ships alternatives)
-   - `inputs` with declared types (Artifact / Intent / Operator-Model / Signal / Verdict)
+   - `inputs` with declared types
    - `chain` with at least one stage invoking your construct
-   - `outputs` with destination paths (use `.run/compose/<run_id>/...`)
+   - `outputs` with destination paths
    - `compose_with`, `invocation_examples`, `when_to_use`, `known_limitations`
-4. Run `compose-run <your-demo> --target ./test-canvas` (or with `LOA_STAGE_MOCK=1` for cheap iteration)
+5. Run `compose-run <your-demo> --target ./test-canvas` (or `LOA_STAGE_MOCK=1` for cheap iteration).
 
-CURATOR refuses to advance past stage 10 without a concrete demonstrated use. The composition does not need to be production-ready; it needs to be *runnable* and *grounded in your construct's actual capabilities*.
+CURATOR refuses to advance past stage 10 without a concrete demonstrated use *and* a clear statement of what the workflow provides. The composition doesn't need to be production-ready; it needs to be *runnable*, *grounded in your construct's actual capabilities*, and *honest about what it delivers*.
 
 ## References
 
 - Doctrine: `bonfire-construct-pipe-doctrine` v6 §15.2 (workflow-kind composition)
-- Runner: `loa-constructs/.claude/scripts/compose-run.sh` (cycle-006 L-backend)
+- Runner: `loa-constructs/.claude/scripts/compose-run.sh`
 - Stream types: Signal · Verdict · Artifact · Intent · Operator-Model (cycle-007 adds Question)
