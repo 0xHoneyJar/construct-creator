@@ -23,6 +23,17 @@ intent: >
 
 backend: headless-tmux
 
+# Hivemind Lab labels (Dec 2025 canon). Wayfinding work is discovery —
+# helping operators find the right construct before authoring or
+# composing. Treats the operator-as-builder as the user.
+hivemind_labels:
+  product_area: "Constructs Network (meta-product)"
+  workstream: discovery
+  jtbd:
+    category: functional
+    description: "Find Information — locate the right construct for the task without re-deriving the network"
+  source: team-internal
+
 inputs:
   - type: Intent
     name: query
@@ -65,6 +76,9 @@ outputs:
   - type: Verdict
     destination: .run/compose/<run_id>/ecosystem-recommendation.json
     description: Final CURATOR-plus-artisan-gated recommendation
+    hivemind_labels:
+      artifact_type: atomic-learning
+      learning_status: directionally-correct
   - type: Signal
     destination: .run/compose/<run_id>/orchestrator.jsonl
     description: Pipe graph trajectory
@@ -88,6 +102,6 @@ known_limitations:
   - "CURATOR's synthesis register accepts context dilution — not appropriate for building work. Use website-scaffold.yaml (or similar multi-stage compositions with persistent teammates) for production-grade output."
   - "Artisan gate in stage 2 is craft-only; doesn't validate composition feasibility. For that, add a stage 3 with the-arcade as structure-gate (cycle-007+)."
 
-version: 1.0
-authored_at: 2026-04-23
-authored_by: cycle-006 L-meta-pack
+version: "1.1.0"
+authored_at: "2026-04-23"
+authored_by: cycle-006 L-meta-pack (v1.1 — Hivemind Lab labels added 2026-04-25)
