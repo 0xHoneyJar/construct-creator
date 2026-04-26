@@ -29,7 +29,7 @@ For each pattern below: lead with what the workflow *provides*, then point at an
 
 **Provides**: a Verdict raised from single-surface to multi-surface context. Operator gets cross-referenced findings; downstream consumers (PR reviewers, team members) get evidence chains anchored in two constructs' lenses, not one.
 
-**In the wild**: [`audit-feel.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/discovery/audit-feel.yaml) — `artisan/decomposing-feel` + `artisan/scoring-experience` → `observer/analyzing-gaps`.
+**In the wild**: [`audit-feel.yaml`](https://github.com/0xHoneyJar/loa-compositions/blob/main/compositions/discovery/audit-feel.yaml) — `artisan/decomposing-feel` + `artisan/scoring-experience` → `observer/analyzing-gaps`.
 
 **Reach for it when**: your construct emits a Verdict that benefits from cross-reference (friction map, behavior log, prior decisions).
 
@@ -37,7 +37,7 @@ For each pattern below: lead with what the workflow *provides*, then point at an
 
 **Provides**: an artifact produced from a brief, with selection discipline built in. Operator gets output that landed inside the canon; the end user (whoever sees the asset) gets work that feels like it belongs.
 
-**In the wild**: [`direct-render.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/delivery/direct-render.yaml) — `artisan/directing-generation` ↔ `the-mint/prompting-images` → `the-mint/curate` → `the-mint/materialize`.
+**In the wild**: [`direct-render.yaml`](https://github.com/0xHoneyJar/loa-compositions/blob/main/compositions/delivery/direct-render.yaml) — `artisan/directing-generation` ↔ `the-mint/prompting-images` → `the-mint/curate` → `the-mint/materialize`.
 
 **Reach for it when**: one construct distills *what should exist* and another produces it.
 
@@ -45,7 +45,7 @@ For each pattern below: lead with what the workflow *provides*, then point at an
 
 **Provides**: an end-to-end deliverable across research → design → build → structure. Operator gets a compounded outcome no single expert could deliver alone; the end user (visitor, dashboard user) gets coherence across phases that usually drift.
 
-**In the wild**: [`research-scaffold.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/delivery/research-scaffold.yaml) — `k-hole` → `the-easel` ↔ `the-mint/mint` ↔ `the-easel` → `artisan/designing-systems` ↔ `artisan/distilling-components` → `the-arcade/mapping-topology`.
+**In the wild**: [`research-scaffold.yaml`](https://github.com/0xHoneyJar/loa-compositions/blob/main/compositions/delivery/research-scaffold.yaml) — `k-hole` → `the-easel` ↔ `the-mint/mint` ↔ `the-easel` → `artisan/designing-systems` ↔ `artisan/distilling-components` → `the-arcade/mapping-topology`.
 
 **Reach for it when**: the operator's job spans 5+ stages and benefits from a different expert per phase.
 
@@ -53,7 +53,7 @@ For each pattern below: lead with what the workflow *provides*, then point at an
 
 **Provides**: a publishable construct repo as the composition's terminal output. Operator gets a packaged result they can ship as a new pack; the end user (anyone who installs it) gets a queryable, composable expertise surface.
 
-**In the wild**: [`mint-codex.yaml`](https://github.com/0xHoneyJar/loa-constructs/blob/main/grimoires/compositions/experimentation/mint-codex.yaml) — `artisan/synthesizing-taste` → `artisan/distilling-components` ↔ `the-mint/mint` ↔ `the-mint/curate` → `artisan/recording-taste` → `the-mint/materialize`.
+**In the wild**: [`mint-codex.yaml`](https://github.com/0xHoneyJar/loa-compositions/blob/main/compositions/experimentation/mint-codex.yaml) — `artisan/synthesizing-taste` → `artisan/distilling-components` ↔ `the-mint/mint` ↔ `the-mint/curate` → `artisan/recording-taste` → `the-mint/materialize`.
 
 **Reach for it when**: you're building tools that scaffold publishable constructs as users iterate (gen-art collection preview tools, lore authoring surfaces, character pipelines).
 
