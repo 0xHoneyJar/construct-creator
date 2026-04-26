@@ -125,7 +125,7 @@ chain:
   # ... one stage per apprenticeship-stage, or one stage driving many
 ```
 
-Cycle-006 MVP ships the skill ready-to-invoke; the wrapper composition is cycle-007 (per the "real-LLM dispatch beyond scaffold-website" inheritance item).
+Cycle-006 MVP ships the skill ready-to-invoke; the wrapper composition is cycle-007 (per the "real-LLM dispatch beyond research-scaffold" inheritance item).
 
 ## References
 
