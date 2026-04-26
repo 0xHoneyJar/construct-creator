@@ -10,7 +10,7 @@
 
 schema_version: "1.0"
 kind: workflow
-name: explore-ecosystem
+name: find-construct
 description: >
   Two-stage ecosystem exploration. CURATOR surveys the network for
   the operator's intent; artisan validates the recommendation through
